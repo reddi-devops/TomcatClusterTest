@@ -1,16 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>	
+<%@ page import="java.util.*"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
-<html>
+<head>
+<title>ClusterApp Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
 <body>
-	<form action="${ctx}/user/login" method="post">
-		<h2>Tomcat 集群测试项目！！</h2>
-		<p />
-		用户名<input id="user_name"></input> <br /> 密码<input id="password"></input>
-		<br> <input type="submit" value="登录"></input>
+	<%
+	    out.println("Server Info=" + request.getLocalAddr() + " : " + request.getLocalPort() + "<br>");
+	    out.println("Session ID=" + session.getId() + "<br>");
+	%>
+
+	<%
+	    String dataName = request.getParameter("dataName");
+	    if (dataName != null && dataName.length() > 0) {
+	        String dataValue = request.getParameter("dataValue");
+	        session.setAttribute(dataName, dataValue);
+	    }
+
+	    Enumeration e = session.getAttributeNames();
+	    while (e.hasMoreElements()) {
+	        String name = (String) e.nextElement();
+	        String value = session.getAttribute(name).toString();
+	        out.println(name + " = " + value + "<br>");
+	        System.out.println(name + " = " + value);
+	    }
+	%>
+
+	<form action="${ctx}/user/login" method="POST">
+		名称:<input type=text size=20 name="dataName"> <br />
+		值:<input  type=text size=20 name="dataValue"> <br /> 
+		<input	type=submit text="提交">
 	</form>
 </body>
 </html>

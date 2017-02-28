@@ -51,7 +51,7 @@ public class UserController {
             logger.debug("login(String userName={}, String oPasswd={}) - end", userName, oPasswd); //$NON-NLS-1$
         }
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/user/logout");
+        mv.setViewName("/index");
         return mv;
     }
 }
