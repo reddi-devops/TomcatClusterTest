@@ -161,12 +161,6 @@
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 	<Context path="" reloadable="false" docBase="/opt/tct/webapps/tct"/>
-	<!-- 配置通过redis 进行session共享 ， 使用的组件是  https://github.com/pivotalsoftware/session-managers -->
-	<Valve className="com.gopivotal.manager.SessionFlushValve" />
-        <Manager   className="org.apache.catalina.session.PersistentManager">
-               <Store className="com.gopivotal.manager.redis.RedisStore" host="192.168.1.120" port="16379" password="1qaz369*"/>
-        </Manager>
-	<!-- 配置结束 -->
       </Host>
     </Engine>
   </Service>
