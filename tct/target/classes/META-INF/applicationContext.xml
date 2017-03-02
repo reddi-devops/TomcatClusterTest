@@ -19,7 +19,6 @@
           http://www.springframework.org/schema/data/jpa  
           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
     default-lazy-init="false">
-    <context:property-placeholder location="classpath:config/*.properties" />
     <!--开启这个配置，spring识别@Scheduled注解 -->
     <task:annotation-driven />
     <!-- -->
