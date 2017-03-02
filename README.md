@@ -73,11 +73,17 @@ http://docker宿主_ip
 每次访问浏览器。
     * server 的ip地址在3台tomcat的docker容器的ip地址上切换。
     * session id 不变
+    * 输入一个session的key 和 value ，在所有的tomcat上都可以同步获取
     
     ```
     Server Info=172.18.0.4 : 8080
     Session ID=5C9CF22DF55DD660A36EB013275FCCC9
     ```
+
+PS：
+  redis-store-1.3.2.BUILD-20170224.183842-4.jar 这个版本，有个致命bug。 在录入一个session的key和value后，tomcat 集群会无法复制。表现状况是：只有一台或者几台机器可以同步session中的key和value。但是session id 还是一致的。
+
+  修改成 redis-store-1.4.0.BUILD-20160830.204629-3.jar 这个包以后就没有问题了
  
 
 
