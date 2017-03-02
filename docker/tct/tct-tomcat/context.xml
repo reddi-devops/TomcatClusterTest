@@ -33,10 +33,14 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-	<!-- 配置通过redis 进行session共享 ， 使用的组件是  https://github.com/pivotalsoftware/session-managers -->
-        <Valve className="com.gopivotal.manager.SessionFlushValve" />
-        <Manager   className="org.apache.catalina.session.PersistentManager">
-               <Store className="com.gopivotal.manager.redis.RedisStore" host="session-redis" port="6379" password="1qaz369*"/>
-        </Manager>
-        <!-- 配置结束 -->
+	 <!-- 配置通过redis 进行session共享 ， 使用的组件是https://github.com/chexagon/redis-session-manager -->
+   <Manager
+        className="com.crimsonhexagon.rsm.redisson.SingleServerSessionManager"
+        endpoint="session-redis:6379" sessionKeyPrefix="_rsm_"
+        saveOnChange="true" forceSaveAfterRequest="false"
+        dirtyOnMutation="false" ignorePattern=".*\\.(ico|png|gif|jpg|jpeg|swf|css|js)$"
+        connectionPoolSize="100" database="0" password="1qaz369*"
+        timeout="60000" pingTimeout="1000" retryAttempts="20"
+        retryInterval="1000" />
+  <!--  -->
 </Context>

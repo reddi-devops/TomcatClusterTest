@@ -15,7 +15,7 @@ services:
         image: tct/tomcat
         container_name: "tct-tomcat-001"
         volumes:
-            - "$PWD/tct-tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar:/usr/local/tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar"
+            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
             - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
             - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
             - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
@@ -36,7 +36,7 @@ services:
         image: tct/tomcat
         container_name: "tct-tomcat-002"
         volumes:
-            - "$PWD/tct-tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar:/usr/local/tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar"
+            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
             - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
             - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
             - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
@@ -58,7 +58,7 @@ services:
         image: tct/tomcat
         container_name: "tct-tomcat-003"
         volumes:
-            - "$PWD/tct-tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar:/usr/local/tomcat/lib/redis-store-1.4.0.BUILD-20160830.204629-3.jar"
+            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
             - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
             - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
             - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
