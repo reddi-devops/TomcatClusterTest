@@ -38,7 +38,7 @@
         className="com.crimsonhexagon.rsm.redisson.SingleServerSessionManager"
         endpoint="session-redis:6379" sessionKeyPrefix="_rsm_"
         saveOnChange="true" forceSaveAfterRequest="false"
-        dirtyOnMutation="false" ignorePattern=".*\\.(ico|png|gif|jpg|jpeg|swf|css|js)$"
+        dirtyOnMutation="false" 
         connectionPoolSize="100" database="0" password="1qaz369*"
         timeout="60000" pingTimeout="1000" retryAttempts="20"
         retryInterval="1000" />
