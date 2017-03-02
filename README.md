@@ -1,6 +1,6 @@
 # TomcatClusterTest
 
-这个是使用docker 来构建1个ngix 和 3个 tomcat，1个redis的集群,并且在tomcat中使用Pivotal Session Managers 来完成session共享的集群功能的测试项目
+这个是使用docker 来构建1个ngix 和 3个 tomcat，1个redis的集群,并且在tomcat中使用chexagon/redis-session-manager来完成session共享的集群功能的测试项目
 
 ## 1. 软件版本
 * docker 宿主机 ： centos 7.2 64bit
@@ -25,7 +25,7 @@ docker-compose version 1.11.1, build 7c5d5e4
 
 测试通过！
 
-##注意一下几点
+##注意以下几点
 * nginx 不是通过 ip_hash的方式进行 tomcat切换。
     ip_hash的方式是通过对客户端访问的ip地址进行hash，并且同一个hash始终落在一个tomcat上。
     如果用ip_hash方式就无法用单一客户端来测试session共享了.
