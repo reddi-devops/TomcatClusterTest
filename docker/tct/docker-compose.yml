@@ -11,66 +11,29 @@ services:
             - "$PWD/redis/data:/data"
     
     tct-tomcat-001:
-        build: ./tct-tomcat
-        image: tct/tomcat
+        extends:
+            file: tomcat-common.yml
+            service: tct-tomcat #这个要和tomcat-common中定义的service一致
         container_name: "tct-tomcat-001"
-        volumes:
-            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
-            - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
-            - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
-            - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
-            - "$PWD/tct-tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml"
-            - "$PWD/tct-tomcat/tct.cer:/usr/local/tomcat/conf/tct.cer"
-            - "$PWD/tct-tomcat/213981816970139.key:/usr/local/tomcat/conf/213981816970139.key"
-            - "$PWD/tct-tomcat/213981816970139.pem:/usr/local/tomcat/conf/213981816970139.pem"
-            - "$PWD/tct-tomcat/213981816970139.pfx:/usr/local/tomcat/conf/213981816970139.pfx"
-            - "/opt/tct:/opt/tct"
-            - "$PWD/tct-tomcat/logs/001:/usr/local/tomcat/logs"
-            - "$PWD/tct-tomcat/logs/001/tct:/logs/tct"
         links:
             - tct-redis:session-redis
 
     tct-tomcat-002:
-        build: ./tct-tomcat
-        image: tct/tomcat
+        extends:
+            file: tomcat-common.yml
+            service: tct-tomcat
         container_name: "tct-tomcat-002"
-        volumes:
-            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
-            - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
-            - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
-            - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
-            - "$PWD/tct-tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml"
-            - "$PWD/tct-tomcat/tct.cer:/usr/local/tomcat/conf/tct.cer"
-            - "$PWD/tct-tomcat/213981816970139.key:/usr/local/tomcat/conf/213981816970139.key"
-            - "$PWD/tct-tomcat/213981816970139.pem:/usr/local/tomcat/conf/213981816970139.pem"
-            - "$PWD/tct-tomcat/213981816970139.pfx:/usr/local/tomcat/conf/213981816970139.pfx"
-            - "/opt/tct:/opt/tct"
-            - "$PWD/tct-tomcat/logs/002:/usr/local/tomcat/logs"
-            - "$PWD/tct-tomcat/logs/002/tct:/logs/tct"
         links:
             - tct-redis:session-redis
 
 
     tct-tomcat-003:
-        build: ./tct-tomcat
-        image: tct/tomcat
+        extends:
+            file: tomcat-common.yml
+            service: tct-tomcat  
         container_name: "tct-tomcat-003"
-        volumes:
-            - "$PWD/tct-tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar:/usr/local/tomcat/lib/redis-session-manager-with-dependencies-2.1.0.jar"
-            - "$PWD/tct-tomcat/server.xml:/usr/local/tomcat/conf/server.xml"
-            - "$PWD/tct-tomcat/context.xml:/usr/local/tomcat/conf/context.xml"
-            - "$PWD/tct-tomcat/setenv.sh:/usr/local/tomcat/bin/setenv.sh"
-            - "$PWD/tct-tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml"
-            - "$PWD/tct-tomcat/tct.cer:/usr/local/tomcat/conf/tct.cer"
-            - "$PWD/tct-tomcat/213981816970139.key:/usr/local/tomcat/conf/213981816970139.key"
-            - "$PWD/tct-tomcat/213981816970139.pem:/usr/local/tomcat/conf/213981816970139.pem"
-            - "$PWD/tct-tomcat/213981816970139.pfx:/usr/local/tomcat/conf/213981816970139.pfx"
-            - "/opt/tct:/opt/tct"
-            - "$PWD/tct-tomcat/logs/003:/usr/local/tomcat/logs"
-            - "$PWD/tct-tomcat/logs/003/tct:/logs/tct"
         links:
             - tct-redis:session-redis
-
     
     tct-nginx:
         build: ./tct-nginx
