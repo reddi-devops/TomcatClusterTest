@@ -31,7 +31,7 @@
 	    }
 	%>
 
-	<form action="${ctx}/user/login" method="POST">
+	<form action="${ctx}/" method="POST">
 		名称:<input type=text size=20 name="dataName"> <br />
 		值:<input  type=text size=20 name="dataValue"> <br /> 
 		<input	type=submit text="提交">
