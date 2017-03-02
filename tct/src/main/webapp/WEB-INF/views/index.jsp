@@ -3,13 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*"%>
+<%@ include file="./common/global.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <html>
 <head>
 <title>ClusterApp Test</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
+<script src="${ctx}/assets/js/login/login.js"></script>
+<link rel="stylesheet" href="${ctx}/assets/css/login/login.css">
+
 <body>
+    <img src="<c:url value="/assets/imgs/log.png" />">
+    <br/>
 	<%
 	    out.println("Server Info=" + request.getLocalAddr() + " : " + request.getLocalPort() + "<br>");
 	    out.println("Session ID=" + session.getId() + "<br>");
