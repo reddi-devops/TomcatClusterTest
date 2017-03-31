@@ -28,13 +28,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Log4j2
 public class UserController {
 
-
-
     /**
+     * Login model and view.
      *
-     * @param userName
-     * @param oPasswd
-     * @return
+     * @param userName the user name
+     * @param oPasswd the o passwd
+     * @return the model and view
      */
     @RequestMapping(value = "/login", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
     @ResponseBody
